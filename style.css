@@ -1,0 +1,103 @@
+@font-face {
+    font-family: a;
+    src: url(./app/Bitshow.otf);
+}
+
+*,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(to right, #18006e, #000000);
+    height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.img-content>img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 400px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.Title {
+    margin-top: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.title {
+    color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+    font-size: 60px;
+    position: relative;
+    top: 50px;
+    right: 200px;
+}
+
+.title-store {
+    z-index: 2;
+    color: white;
+    font-family: a;
+    font-size: 50px;
+    text-shadow: 0px 0px 5px white,
+        0px 0px 15px rgb(138, 95, 255);
+}
+
+.ok {
+    z-index: 100000000;
+}
+
+.ok {
+    margin-left: 400px;
+    padding: 25px 40px;
+    border: none;
+    outline: none;
+    background-color: #000746;
+    border: 1px solid;
+    color: #eee;
+    border-radius: 7px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease-out;
+    z-index: 5;
+}
+
+.ok:hover {
+    transform: translateY(-3px);
+}
+.ok:hover ::after {
+    content: "  >>";
+    padding: 5px;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.button-span {
+    color: #aaa;
+}
+
+.ok:active {
+    background-color: #002679;
+}
+

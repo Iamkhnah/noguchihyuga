@@ -1,0 +1,36 @@
+.bar {
+    z-index: 100;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+  }
+  
+  .menu > li {
+    list-style: none;
+    padding: 10px 10px;
+    text-decoration: none;
+    z-index: 100;
+    border-radius: 10px;
+    /* background-color: rgb(31, 49, 128); */
+  }
+  
+  .menu li a {
+    display: inline-block;
+    padding: 15px 15px;
+    text-decoration: none;
+    color: white;
+    z-index: 100;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  .menu li a:hover {
+    text-shadow: 0px 0px 5px white,
+      0px 0px 20px rgb(25, 0, 255);
+    transform: translateY(-5px);
+  }
