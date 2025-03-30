@@ -77,10 +77,9 @@ async function loading() {
         ". . ."
     ]
     if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        alert("Bro! This website only work for Pc");
-        window.location.href = "https://google.com";
-    } else {
-        var i = 0
+        alert("Bro! This website only work for Pc. Use on Mobile very gay.");
+    }
+    var i = 0
         setInterval(function() {
             if (text) {
                 if (i > 2) {
@@ -90,7 +89,6 @@ async function loading() {
                 i = i + 1
             }
         }, 500)
-    }
 }
 async function get() {
     try {
