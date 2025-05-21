@@ -1,7 +1,8 @@
 
 local api = {
     'https://vuotnhanh.com/redirect/TkxaNHp0ZHdkd1F1dVA2ajhTdEFmWTRKSnB5VEZkSXk2eWhGSi9xWjNyUT06OmViOWYwYzBjYzc4ZWE3YzQ=',
-    "https://vuotnhanh.com/redirect/RnVhVEovaE9sbmY0bVQ5QjBXMU5pSGJJMFd5R25zY1QvK1dYNXpCc0I5RT06OmViOWYwYzBjYzc4ZWE3YzQ="
+    "https://vuotnhanh.com/redirect/RnVhVEovaE9sbmY0bVQ5QjBXMU5pSGJJMFd5R25zY1QvK1dYNXpCc0I5RT06OmViOWYwYzBjYzc4ZWE3YzQ=",
+    "https://vuotnhanh.com/redirect/SGZ1Tkh6WGJ3c2hPVjhuN2RQWU81M0ZnOHpybFJwWGY2Y2pUem16NFo4cGdKcEdpSzYrNk1aYndjMzJUcWZNVjo6ZWI5ZjBjMGNjNzhlYTdjNA=="
 }
 local ua = {
     "android|Mozilla/5.0 (Linux; U; Android 7.1; GT-I9100 Build/KTU84P) AppleWebKit/603.12 (KHTML, like Gecko) Chrome/50.0.3755.367 Mobile Safari/600.8",
