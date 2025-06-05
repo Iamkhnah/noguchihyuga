@@ -1,0 +1,77 @@
+local old = game:GetService("ReplicatedStorage").Modules.Net
+local attack = old:FindFirstChild("RE/RegisterAttack")
+local hit = old:FindFirstChild("RE/RegisterHit")
+local c = {}
+function c:__getdis(asd,ads)
+    ads = ads or game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    return (asd.Position - ads.Position).Magnitude
+end
+function c:__getplr()
+    local h = {}
+    for i, v in game.Workspace.Characters:GetChildren() do
+        if v ~= game.Workspace.Characters[game.Players.LocalPlayer.Name] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+            if self:__getdis(v.HumanoidRootPart.CFrame) < 100 then
+               h[# h+1] = v 
+            end
+        end
+    end
+    for i, v in game.Workspace.Enemies:GetChildren() do
+        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+            if self:__getdis(v.HumanoidRootPart.CFrame) < 100 then
+               h[# h+1] = v 
+            end
+        end
+    end
+    return h
+end
+local troi, _rg = rawget or function (ar,i)
+    return ar[i]
+end
+function c:__hit()
+    repeat
+        wait()
+    until troi and #self:__getplr() > 0
+    local lx, lv = {}, self:__getplr()
+    for i = 1, #lv do
+        local x = {
+			"RightLowerArm",
+			"RightUpperArm",
+			"LeftLowerArm";
+			"LeftUpperArm",
+			"RightHand",
+			"LeftHand"
+		}
+        lx[1] = lx[1] or (lv[i]:FindFirstChild(x[math.random(1, #x)])  or lv[i].HumanoidRootPart)
+        lx[2] = lx[2] or {}
+        lx[2][#lx[2] + 1] = {lv[i],lv[i]:FindFirstChild(x[math.random(1, #x)])}
+    end
+    attack:FireServer(-math.huge)
+    troi(unpack(lx))
+end
+--if require(game:GetService("ReplicatedStorage"):FindFirstChild("Modules").Flags)["COMBAT_REMOTE_THREAD"] then end
+if hit:GetAttribute("Virtual") then
+    repeat
+        wait()
+    until game:GetService("Players").LocalPlayer:FindFirstChild("PlayerScripts"):FindFirstChildOfClass("LocalScript")
+    if getsenv then
+        troi = _env._G.SendHitsToServer
+    else
+        for i, v in getgc(true) do
+            if typeof(v) == "table" and _rg(v, "SendHitsToServer") then
+                troi = _rg(v, "SendHitsToServer")
+            end
+        end
+    end
+else
+    troi = function(...)
+        hit:FireServer(...)
+    end
+end
+
+return setmetatable({
+    ["hit"] = c["__hit"]
+}, {
+    __index = function(self, i)
+        return self[i]
+    end
+})
